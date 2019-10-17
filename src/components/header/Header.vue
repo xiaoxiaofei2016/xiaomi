@@ -7,7 +7,7 @@
 
 <script>
 import siteTopBar from './siteTopBar.vue'
-import siteHeader from './siteHeader.vue'
+import siteHeader from './siteHeader'
 export default {
   components: {
     'v-siteTopBar': siteTopBar,
