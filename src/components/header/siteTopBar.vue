@@ -2,33 +2,33 @@
   <div class="site-topbar">
     <div class="container">
       <div class="topbar-nav">
-        <router-link to="/" target="_blank">小米商城</router-link>
+        <router-link to="/" target="_blank" class="title">小米商城</router-link>
         <span class="sep">|</span>
-        <router-link to="">MIUI</router-link>
+        <router-link to="" class="title">MIUI</router-link>
         <span class="sep">|</span>
-        <router-link to="">IoT</router-link>
+        <router-link to="" class="title">IoT</router-link>
         <span class="sep">|</span>
-        <router-link to="">云服务</router-link>
+        <router-link to="" class="title">云服务</router-link>
         <span class="sep">|</span>
-        <router-link to="">金融</router-link>
+        <router-link to="" class="title">金融</router-link>
         <span class="sep">|</span>
-        <router-link to="">有品</router-link>
+        <router-link to="" class="title">有品</router-link>
         <span class="sep">|</span>
-        <router-link to="">小爱开放平台</router-link>
+        <router-link to="" class="title">小爱开放平台</router-link>
         <span class="sep">|</span>
-        <router-link to="">企业团购</router-link>
+        <router-link to="" class="title">企业团购</router-link>
         <span class="sep">|</span>
-        <router-link to="">资质证照</router-link>
+        <router-link to="" class="title">资质证照</router-link>
         <span class="sep">|</span>
-        <router-link to="">协议规则</router-link>
+        <router-link to="" class="title">协议规则</router-link>
         <span class="sep">|</span>
-        <router-link to="" class="topbar-download">下载app
+        <router-link to="" class="topbar-download active title">下载app
           <span class="appcode">
             <img src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="小米商城" width="90" height="90">小米商城APP
           </span>
         </router-link>
         <span class="sep">|</span>
-        <router-link to="">Select Location</router-link>
+        <router-link to="" class="title">Select Location</router-link>
       </div>
       <div class="topbar-cart">
         <router-link class="cart-mini" to="">
@@ -50,12 +50,12 @@
         </div>
       </div>
       <div class="topbar-info">
-        <router-link class="link" to="">登录</router-link>
+        <router-link class="link title" to="">登录</router-link>
         <span class="sep">|</span>
-        <router-link class="link" to="">注册</router-link>
+        <router-link class="link title" to="">注册</router-link>
         <span class="sep">|</span>
         <span class="message">
-          <router-link class="needmessage" to="">
+          <router-link class="needmessage title" to="">
             消息通知
           </router-link>
         </span>
@@ -84,6 +84,8 @@ export default {
       float left
       height 40px
       line-height 40px
+      .title:hover
+        color #fff
       .sep
         margin 0.3em
         color $bg_color
@@ -91,6 +93,17 @@ export default {
         color $font_color
         line-height 40px
         display inline-block
+      .active::before
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        margin-left: -8px;
+        border-width: 0 8px 8px;
+        border-style: solid;
+        border-color: rgba(0,0,0,0) rgba(0,0,0,0) #fff;
       .topbar-download
         position relative
         .appcode
@@ -106,7 +119,7 @@ export default {
           font-size 14px
           color #333
           line-height 1
-          overflow hidden
+          // overflow hidden
           transition height 0.3s
           img
             display block
@@ -169,6 +182,8 @@ export default {
         color $font_color
         line-height 40px
         display inline-block
+      .title:hover
+        color #fff
       .link
         padding 0 5px
         text-align center

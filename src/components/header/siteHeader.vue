@@ -5,7 +5,7 @@
         <router-link class="logo" to="/"></router-link>
       </div>
       <div class="header-nav">
-      <el-menu class="el-menu-demo" mode="horizontal" router="true">
+      <el-menu class="el-menu-demo" mode="horizontal" router>
         <el-submenu index="0">
           <template slot="title">全部商品</template>
           <el-menu-item index="0-1">1</el-menu-item>
@@ -14,19 +14,13 @@
         </el-submenu>
         <el-submenu index="1">
           <template slot="title">小米手机</template>
-          <ul class="children-list" v-for="" :key="">
-            <el-menu-item index="1" >
-              
-                <div >
-                  <div class="figure">
-                    <img src="" alt="" width="160" height="110">
-                  </div>
-                  <div class="title">小米9 Pro 5G </div>
-                  <p class="price">3699元起</p>
-                </div>
-              
+            <el-menu-item index="1" v-for="" :key="">
+              <div class="figure">
+                <img src="" alt="" width="160" height="110">
+              </div>
+              <div class="title">小米9 Pro 5G </div>
+              <p class="price">3699元起</p>        
             </el-menu-item>
-          </ul>
         </el-submenu>
         <el-submenu index="2">
           <template slot="title">Redmi红米</template>
@@ -142,6 +136,7 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="stylus">
+.site-header
+  background-color #000
 </style>
