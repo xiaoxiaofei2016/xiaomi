@@ -137,6 +137,5 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.site-header
-  background-color #000
+
 </style>
