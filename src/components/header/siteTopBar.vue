@@ -79,8 +79,7 @@ export default {
   z-index 30
   .container
     width 1226px
-    margin 0 100px
-    display inline-block
+    margin 0 auto
     .topbar-nav
       float left
       height 40px

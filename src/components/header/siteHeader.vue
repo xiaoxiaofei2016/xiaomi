@@ -16,13 +16,15 @@
           <template slot="title">小米手机</template>
           <ul class="children-list" v-for="" :key="">
             <el-menu-item index="1" >
-              <li class="first">
-                <div class="figure">
-                  <img src="" alt="" width="160" height="110">
+              
+                <div >
+                  <div class="figure">
+                    <img src="" alt="" width="160" height="110">
+                  </div>
+                  <div class="title">小米9 Pro 5G </div>
+                  <p class="price">3699元起</p>
                 </div>
-                <div class="title">小米9 Pro 5G </div>
-                <p class="price">3699元起</p>
-              </li>
+              
             </el-menu-item>
           </ul>
         </el-submenu>
