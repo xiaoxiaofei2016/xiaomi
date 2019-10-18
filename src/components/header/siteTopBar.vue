@@ -2,7 +2,7 @@
   <div class="site-topbar">
     <div class="container">
       <div class="topbar-nav">
-        <router-link to="/Cart" target="_blank">小米商城</router-link>
+        <router-link to="/" target="_blank">小米商城</router-link>
         <span class="sep">|</span>
         <router-link to="">MIUI</router-link>
         <span class="sep">|</span>
@@ -79,7 +79,7 @@ export default {
   z-index 30
   .container
     width 1226px
-    margin 0 auto
+    margin 0 100px
     display inline-block
     .topbar-nav
       float left
