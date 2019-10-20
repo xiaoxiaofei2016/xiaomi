@@ -2,7 +2,7 @@
   <div class="site-header">
     <div class="container">
       <div class="header-logo">
-        <router-link class="logo ir" to="/"></router-link>
+        <router-link class="logo ir" to="/" title="小米官网">小米官网</router-link>
       </div>
       <div class="header-nav">
       <el-menu class="el-menu-demo" mode="horizontal" router>
@@ -146,6 +146,9 @@ export default {
       float left
       width 62px
       margin-top 22px
+      .ir
+        text-align left 
+        text-indent -9999em
       .logo
         position relative
         display block
@@ -153,11 +156,31 @@ export default {
         height 55px
         overflow hidden
         background-color #ff6700
+        &::before
+          background url() no-repeat 50% 50%
+          opacity 1
+          transform translate(0, 0)
         &::after
-          background url(https://s02.mifile.cn/assets/static/image/mi-home.png) no-repeat 50% 50%
+          background url() no-repeat 50% 50%
           opacity 0
           margin-left -55px
-      .ir
-        text-align left 
-        text-indent -9999em
+          transform translate(0, 0)
+        &:hover::before
+          opacity 0
+          transform translateX(55px)
+        &:hover::after
+          opacity 1
+          transform translateX(55px)
+      
+      .logo::before, .logo::after
+        position absolute
+        left 0
+        top 0
+        z-index 1
+        width 55px
+        height 55px
+        content ''
+        transform-origin 50% 50%
+        transition all .2s
+
 </style>
