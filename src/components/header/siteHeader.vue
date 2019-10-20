@@ -137,5 +137,13 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-
+.site-header
+  position relative
+  .container
+    width 1226px
+    margin 0 auto
+    .header-logo
+      float left
+      width 62px
+      margin-top 22px
 </style>
