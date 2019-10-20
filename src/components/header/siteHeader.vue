@@ -146,4 +146,18 @@ export default {
       float left
       width 62px
       margin-top 22px
+      .logo
+        position relative
+        display block
+        width 55px
+        height 55px
+        overflow hidden
+        background-color #ff6700
+        &::after
+          background url(https://s02.mifile.cn/assets/static/image/mi-home.png) no-repeat 50% 50%
+          opacity 0
+          margin-left -55px
+      .ir
+        text-align left 
+        text-indent -9999em
 </style>
