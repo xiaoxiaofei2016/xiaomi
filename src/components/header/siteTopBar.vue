@@ -218,5 +218,5 @@ export default {
         margin 0
       .message
         padding 0 10px
-
+        
 </style>

@@ -171,7 +171,6 @@ export default {
         &:hover::after
           opacity 1
           transform translateX(55px)
-      
       .logo::before, .logo::after
         position absolute
         left 0
@@ -182,6 +181,7 @@ export default {
         content ''
         transform-origin 50% 50%
         transition all .2s
+        
     .header-nav
       float left
       width 850px
