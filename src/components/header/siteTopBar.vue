@@ -167,7 +167,7 @@ export default {
         color $font_color
         background $bg_color
     .topbar-cart-active .cart-mini
-        color #ff6700
+        color $hover_color
         background #fff
         i
           margin-right 4px

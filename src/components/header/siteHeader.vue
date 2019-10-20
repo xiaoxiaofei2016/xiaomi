@@ -155,13 +155,13 @@ export default {
         width 55px
         height 55px
         overflow hidden
-        background-color #ff6700
+        background-color $hover_color
         &::before
-          background url() no-repeat 50% 50%
+          background url('https://s02.mifile.cn/assets/static/image/mi-logo.png') no-repeat 50% 50%
           opacity 1
           transform translate(0, 0)
         &::after
-          background url() no-repeat 50% 50%
+          background url('https://s02.mifile.cn/assets/static/image/mi-home.png') no-repeat 50% 50%
           opacity 0
           margin-left -55px
           transform translate(0, 0)
@@ -182,5 +182,8 @@ export default {
         content ''
         transform-origin 50% 50%
         transition all .2s
+    .header-nav
+      float left
+      width 850px
 
 </style>
