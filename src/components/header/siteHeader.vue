@@ -2,7 +2,7 @@
   <div class="site-header">
     <div class="container">
       <div class="header-logo">
-        <router-link class="logo" to="/"></router-link>
+        <router-link class="logo ir" to="/"></router-link>
       </div>
       <div class="header-nav">
       <el-menu class="el-menu-demo" mode="horizontal" router>

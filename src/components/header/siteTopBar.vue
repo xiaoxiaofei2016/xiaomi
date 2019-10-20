@@ -22,7 +22,7 @@
         <span class="sep">|</span>
         <router-link to="" class="title">协议规则</router-link>
         <span class="sep">|</span>
-        <router-link to="" class="topbar-download active title">下载app
+        <router-link to="" class="topbar-download title" :class="{'active': isShow}" @mouseenter.native.stop="enter" @mouseleave.native.stop="leave">下载app
           <span class="appcode">
             <img src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="小米商城" width="90" height="90">小米商城APP
           </span>
@@ -30,21 +30,21 @@
         <span class="sep">|</span>
         <router-link to="" class="title">Select Location</router-link>
       </div>
-      <div class="topbar-cart">
-        <router-link class="cart-mini" to="">
-          <i class="iconfont icon-gouwuchekong"></i>
-          <i class="iconfont icon-gouwuchekong1 hide"></i>
+      <div class="topbar-cart" :class="[{'topbar-cart-active': isShowCart}]">
+        <router-link class="cart-mini" to="" @mouseenter.native.stop="enterCart" @mouseleave.native.stop="leaveCart">
+          <i class="iconfont icon-cart--copy "></i>
+          <i class="iconfont icon-gouwucheman hide"></i>
           购物车
           <span class="cart-mini-num">(0)</span>
         </router-link>
-        <div class="cart-menu">
+        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}">
           <div class="menu-content">
-            <div class="loading">
+            <div class="loading" :class="{'hide': isShow}">
               <div class="loader"></div>
               <ul class="cart-list hide"></ul>
               <div class="cart-total clearfix hide"></div>
               <div class="msg msg-error hide"></div>
-              <div class="msg msg-empty hide">购物车中还没有商品，赶紧选购吧!</div>
+              <div class="msg msg-empty" :class="{'hide': !isShowCart}">购物车中还没有商品，赶紧选购吧!</div>
             </div>
           </div>
         </div>
@@ -66,6 +66,26 @@
 
 <script>
 export default {
+  data () {
+    return {
+      isShow: false,
+      isShowCart: false
+    }
+  },
+  methods: {
+    enter () {
+      this.isShow = true
+    },
+    leave () {
+      this.isShow = false
+    },
+    enterCart () {
+      this.isShowCart = true
+    },
+    leaveCart () {
+      this.isShowCart = false
+    }
+  }
 }
 </script>
 
@@ -93,17 +113,7 @@ export default {
         color $font_color
         line-height 40px
         display inline-block
-      .active::before
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 0;
-        margin-left: -8px;
-        border-width: 0 8px 8px;
-        border-style: solid;
-        border-color: rgba(0,0,0,0) rgba(0,0,0,0) #fff;
+
       .topbar-download
         position relative
         .appcode
@@ -119,11 +129,25 @@ export default {
           font-size 14px
           color #333
           line-height 1
-          // overflow hidden
+          overflow hidden
           transition height 0.3s
-          img
-            display block
-            margin 18px auto 12px
+        img
+          display block
+          margin 18px auto 12px
+      .active
+        &::before
+          content ""
+          position absolute
+          bottom 0
+          left 50%
+          width 0
+          height 0
+          margin-left -8px
+          border-width 0 8px 8px
+          border-style solid
+          border-color rgba(0,0,0,0) rgba(0,0,0,0) #fff
+      .topbar-download.active .appcode
+        height 148px
 
     .topbar-cart
       position relative
@@ -142,6 +166,9 @@ export default {
         text-align center
         color $font_color
         background $bg_color
+    .topbar-cart-active .cart-mini
+        color #ff6700
+        background #fff
         i
           margin-right 4px
           font-size 20px
