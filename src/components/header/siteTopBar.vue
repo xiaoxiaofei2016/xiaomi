@@ -41,11 +41,11 @@
           <div class="menu-content">
             <div class="loading" :class="{'hide': isShow}">
               <div class="loader"></div>
-              <ul class="cart-list hide"></ul>
-              <div class="cart-total clearfix hide"></div>
-              <div class="msg msg-error hide"></div>
-              <div class="msg msg-empty" :class="{'hide': !isShowCart}">购物车中还没有商品，赶紧选购吧!</div>
             </div>
+            <ul class="cart-list hide"></ul>
+            <div class="cart-total clearfix hide"></div>
+            <div class="msg msg-error hide"></div>
+            <div class="msg msg-empty" :class="{'hide': !isShowCart}">购物车中还没有商品，赶紧选购吧!</div>
           </div>
         </div>
       </div>
@@ -190,15 +190,46 @@ export default {
           .loading
             margin 0 20px 20px
             text-align center
-            .cart-list
-              margin 0
-              padding 0
-              list-style-type none
-            .cart-total
-              padding 15px 20px
-              background #fafafa
-            .msg
-              padding 20px 0 20px
+            .loader
+              &::before
+                margin -10px 0 0 -10px
+                animation-delay .25s
+                transform scaleY(.3)
+                transform-origin 50% 50%
+                animation loader 0.3s infinite alternate-reverse linear
+              &::after
+                margin -10px 0 0 6px
+                animation-delay .5s
+                transform scaleY(.5)
+                transform-origin 50% 50%
+                animation loader 0.3s infinite alternate-reverse linear
+            .loader::before, .loader::after
+              position absolute
+              left 50%
+              top 50%
+              width 4px
+              height 20px
+              content ''
+              background $hover_color
+          @keyframes loader
+            0%
+              transform scaleY(0.5)
+              opacity 0.2
+            100%
+              transform scale(1)
+              opacity 1
+
+          .cart-list
+            margin 0
+            padding 0
+            list-style-type none
+          .cart-total
+            padding 15px 20px
+            background #fafafa
+          .msg
+            padding 20px 0 20px
+            text-align center
+            margin 0 20px 20px
 
     .topbar-info
       position relative
@@ -218,5 +249,4 @@ export default {
         margin 0
       .message
         padding 0 10px
-        
 </style>
