@@ -5,110 +5,73 @@
         <router-link class="logo ir" to="/" title="小米官网">小米官网</router-link>
       </div>
       <div class="header-nav">
-      <el-menu class="el-menu-demo" mode="horizontal" router>
-        <el-submenu index="0" v-show="showAll" class="nav-category">
-          <template slot="title">全部商品</template>
-          <el-menu-item index="0-1">1</el-menu-item>
-          <el-menu-item index="0-2">2</el-menu-item>
-          <el-menu-item index="0-3">3</el-menu-item>
-        </el-submenu>
-        <el-submenu index="1">
-          <template slot="title">小米手机</template>
-          <el-menu-item index="1" v-for="" :key="">
-            <div class="figure">
-              <img src="" alt="" width="160" height="110">
+        <ul class="nav-list">
+          <li class="nav-category">
+            <router-link class="link-category" to="/">
+              <span class="text">全部商品分类</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">小米手机</span>
+            </router-link>
+            <div class="item-children">
+              <div class="container">
+                <ul class="children-list clearfix">
+                  <li class="first">
+                    <router-link to="/">
+                      <div class="figure figure-thumb">
+                        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41c566d825a3ae3b5751a78d4c7cffdb.png?thumb=1&w=200&h=138&f=webp&q=90" alt="" width="160" height="110">
+                      </div>
+                      <div class="title">小米9 Pro 5G</div>
+                      <p class="price">3699元起</p>
+                    </router-link>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="title">小米9 Pro 5G </div>
-            <p class="price">3699元起</p>        
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="2">
-          <template slot="title">Redmi红米</template>
-          <ul class="children-list" v-for="" :key="">
-            <el-menu-item index="2" >
-              <li class="first">
-                <div class="figure">
-                  <img src="" alt="" width="160" height="110">
-                </div>
-                <div class="title">小米9 Pro 5G </div>
-                <p class="price">3699元起</p>
-              </li>
-            </el-menu-item>
-          </ul>
-        </el-submenu>
-        <el-submenu index="3">
-          <template slot="title">电视</template>
-          <ul class="children-list" v-for="" :key="">
-            <el-menu-item index="3" >
-              <li class="first">
-                <div class="figure">
-                  <img src="" alt="" width="160" height="110">
-                </div>
-                <div class="title">小米9 Pro 5G </div>
-                <p class="price">3699元起</p>
-              </li>
-            </el-menu-item>
-          </ul>
-        </el-submenu>
-        <el-submenu index="4">
-          <template slot="title">笔记本</template>
-          <ul class="children-list" v-for="" :key="">
-            <el-menu-item index="4" >
-              <li class="first">
-                <div class="figure">
-                  <img src="" alt="" width="160" height="110">
-                </div>
-                <div class="title">小米9 Pro 5G </div>
-                <p class="price">3699元起</p>
-              </li>
-            </el-menu-item>
-          </ul>
-        </el-submenu>
-        <el-submenu index="5">
-          <template slot="title">家电</template>
-          <ul class="children-list" v-for="" :key="">
-            <el-menu-item index="5" >
-              <li class="first">
-                <div class="figure">
-                  <img src="" alt="" width="160" height="110">
-                </div>
-                <div class="title">小米9 Pro 5G </div>
-                <p class="price">3699元起</p>
-              </li>
-            </el-menu-item>
-          </ul>
-        </el-submenu>
-        <el-submenu index="6">
-          <template slot="title">路由器</template>
-          <ul class="children-list" v-for="" :key="">
-            <el-menu-item index="6" >
-              <li class="first">
-                <div class="figure">
-                  <img src="" alt="" width="160" height="110">
-                </div>
-                <div class="title">小米9 Pro 5G </div>
-                <p class="price">3699元起</p>
-              </li>
-            </el-menu-item>
-          </ul>
-        </el-submenu>
-        <el-submenu index="7">
-          <template slot="title">智能硬件</template>
-          <ul class="children-list" v-for="" :key="">
-            <el-menu-item index="7" >
-              <li class="first">
-                <div class="figure">
-                  <img src="" alt="" width="160" height="110">
-                </div>
-                <div class="title">小米9 Pro 5G </div>
-                <p class="price">3699元起</p>
-              </li>
-            </el-menu-item>
-          </ul>
-        </el-submenu>
-        <el-menu-item index="8" >服务</el-menu-item>
-        <el-menu-item index="9">社区</el-menu-item>
-      </el-menu>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">Redmi红米</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">电视</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">笔记本</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">家电</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">路由器</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">智能硬件</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">服务</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="link">
+              <span class="text">社区</span>
+            </router-link>
+          </li>
+        </ul>
       </div>
       <div class="header-search">
         <form action="" class="search-form clearfix">
@@ -186,23 +149,5 @@ export default {
     .header-nav
       float left
       width 850px
-      .el-menu-demo
-        position relative
-        z-index 10
-        float left
-        width 1100px
-        height 88px
-        margin 0
-        padding 12px 0 0 30px
-        list-style-type none
-        font-size 16px
-        .nav-category
-          position relative
-          float left
-          width 127px
-          padding-right 15px
-        .el-submenu
-          float left
-          
 
 </style>
