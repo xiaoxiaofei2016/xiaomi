@@ -37,9 +37,9 @@
           购物车
           <span class="cart-mini-num">(0)</span>
         </router-link>
-        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}">
+        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}" @mouseenter="enterCart" @mouseleave="leaveCart">
           <div class="menu-content">
-            <div class="loading" :class="{'hide': isShow}">
+            <div class="loading" :class="{'hide': isShowCart}">
               <div class="loader"></div>
             </div>
             <ul class="cart-list hide"></ul>
@@ -187,22 +187,30 @@ export default {
         transition height 0.3s
         .menu-content
           padding 20px 0 0
+          text-align center
           .loading
             margin 0 20px 20px
             text-align center
+            padding 20px 0
             .loader
+              position relative
+              margin 0 auto
+              width 4px
+              height 20px
+              background $hover_color
+              overflow visible
+              transform scale(1)
+              animation loader 0.3s infinite alternate-reverse linear
               &::before
                 margin -10px 0 0 -10px
-                animation-delay .25s
                 transform scaleY(.3)
                 transform-origin 50% 50%
-                animation loader 0.3s infinite alternate-reverse linear
+                animation loader 0.3s .25s infinite alternate-reverse linear
               &::after
                 margin -10px 0 0 6px
-                animation-delay .5s
                 transform scaleY(.5)
                 transform-origin 50% 50%
-                animation loader 0.3s infinite alternate-reverse linear
+                animation loader 0.3s .5s infinite alternate-reverse linear
             .loader::before, .loader::after
               position absolute
               left 50%
@@ -211,25 +219,27 @@ export default {
               height 20px
               content ''
               background $hover_color
-          @keyframes loader
-            0%
-              transform scaleY(0.5)
-              opacity 0.2
-            100%
-              transform scale(1)
-              opacity 1
+            .cart-list
+              margin 0
+              padding 0
+              list-style-type none
+            .cart-total
+              padding 15px 20px
+              background #fafafa
+            .msg
+              padding 20px 0 20px
+            .cart-menu .loading, .msg
+              text-align center
+              margin 0 20px 20px
+        @keyframes loader
+          0%
+            transform scaleY(0.5)
+            opacity 0.2
+          100%
+            transform scale(1)
+            opacity 1
 
-          .cart-list
-            margin 0
-            padding 0
-            list-style-type none
-          .cart-total
-            padding 15px 20px
-            background #fafafa
-          .msg
-            padding 20px 0 20px
-            text-align center
-            margin 0 20px 20px
+          
 
     .topbar-info
       position relative
@@ -247,6 +257,7 @@ export default {
         text-align center
       .sep
         margin 0
+        color $bg_color
       .message
         padding 0 10px
 </style>
