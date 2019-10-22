@@ -41,7 +41,7 @@
                         <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41c566d825a3ae3b5751a78d4c7cffdb.png?thumb=1&w=200&h=138&f=webp&q=90" alt="" width="160" height="110">
                       </div>
                       <div class="title">小米9 Pro 5G</div>
-                      <p class="price">3699元起</p>
+                      <p class="price">3699元</p>
                     </router-link>
                   </li>
                 </ul>
