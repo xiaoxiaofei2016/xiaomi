@@ -37,7 +37,7 @@
           购物车
           <span class="cart-mini-num">(0)</span>
         </router-link>
-        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}" @mouseenter="enterCart" @mouseleave="leaveCart">
+        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}">
           <div class="menu-content">
             <div class="loading" :class="{'hide': isShowCart}">
               <div class="loader"></div>
@@ -237,9 +237,7 @@ export default {
             opacity 0.2
           100%
             transform scale(1)
-            opacity 1
-
-          
+            opacity 1  
 
     .topbar-info
       position relative
