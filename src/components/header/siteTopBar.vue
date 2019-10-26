@@ -30,14 +30,14 @@
         <span class="sep">|</span>
         <router-link to="" class="title">Select Location</router-link>
       </div>
-      <div class="topbar-cart" :class="[{'topbar-cart-active': isShowCart}]">
-        <router-link class="cart-mini" to="" @mouseenter.native.stop="enterCart" @mouseleave.native.stop="leaveCart">
+      <div class="topbar-cart" :class="[{'topbar-cart-active': isShowCart}]" >
+        <router-link class="cart-mini" to="" @mouseenter.native="enterCart" @mouseleave.native="leaveCart">
           <i class="iconfont icon-cart--copy "></i>
           <i class="iconfont icon-gouwucheman hide"></i>
           购物车
           <span class="cart-mini-num">(0)</span>
         </router-link>
-        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}">
+        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}" @mouseenter="enterCart" @mouseleave="leaveCart">
           <div class="menu-content">
             <div class="loading" :class="{'hide': isShowCart}">
               <div class="loader"></div>
@@ -187,7 +187,6 @@ export default {
         transition height 0.3s
         .menu-content
           padding 20px 0 0
-          text-align center
           .loading
             margin 0 20px 20px
             text-align center
@@ -228,9 +227,10 @@ export default {
               background #fafafa
             .msg
               padding 20px 0 20px
-            .cart-menu .loading, .msg
-              text-align center
-              margin 0 20px 20px
+          .cart-menu .loading,.msg
+            text-align center
+            margin 0 20px 20px
+            padding 20px 0 20px
         @keyframes loader
           0%
             transform scaleY(0.5)
