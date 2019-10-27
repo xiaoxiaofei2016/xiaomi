@@ -77,7 +77,7 @@
               <div class="figure figure-thumb">
                 <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d19da60f9f62eb2aa5dcdbd7df19f0f.png?thumb=1&w=200&h=138&f=webp&q=90" alt="" width="160" height="110">
               </div>
-              <div class="title">小米9</div>
+              <div class="title">小米</div>
               <p class="price">3699元起</p>
             </router-link>
           </li>
