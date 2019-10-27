@@ -92,7 +92,7 @@ export default {
   data () {
     return {
       num: [
-        '0', '1', '2', '3'
+        '0', '1', '2', '3', '4'
       ],
       showAll: true,
       isEnterNav: false,
