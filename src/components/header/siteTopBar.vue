@@ -37,15 +37,15 @@
           购物车
           <span class="cart-mini-num">(0)</span>
         </router-link>
-        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}" @mouseenter="enterCart" @mouseleave="leaveCart">
+        <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}">
           <div class="menu-content">
-            <div class="loading" :class="{'hide': isShowCart}">
+            <div class="loading hide" ref="loading" >
               <div class="loader"></div>
             </div>
             <ul class="cart-list hide"></ul>
             <div class="cart-total clearfix hide"></div>
             <div class="msg msg-error hide"></div>
-            <div class="msg msg-empty" :class="{'hide': !isShowCart}">购物车中还没有商品，赶紧选购吧!</div>
+            <div class="msg msg-empty hide" ref="msg">购物车中还没有商品，赶紧选购吧!</div>
           </div>
         </div>
       </div>
@@ -84,6 +84,19 @@ export default {
     },
     leaveCart () {
       this.isShowCart = false
+    }
+  },
+  mounted() {
+    let loading = this.$refs.loading
+    let msg = this.$refs.msg
+    console.log(this.isShowCart)
+    if (this.isShowCart) {
+      console.log(msg)
+      setTimeout(() =>{
+        console.log(msg)
+        loading.classList.add('hide')
+        msg.classList.remove('hide')
+      }, 1000)
     }
   }
 }
@@ -157,87 +170,87 @@ export default {
       margin-left 15px
       transition all 0.2s
       font-size 12px
-      .cart-mini
-        position relative
-        z-index 32
-        display block
-        height 40px
-        line-height 40px
-        text-align center
-        color $font_color
-        background $bg_color
     .topbar-cart-active .cart-mini
-        color $hover_color
-        background #fff
-        i
-          margin-right 4px
-          font-size 20px
-          line-height 20px
-          vertical-align -4px
-      .cart-menu
-        position absolute
-        right 0
-        top 40px
-        z-index 31
-        width 316px
-        height 0
-        color $bg_color
-        background #fff
-        box-shadow 0 2px 10px rgba(0, 0, 0, 0.15)
-        transition height 0.3s
-        .menu-content
-          padding 20px 0 0
-          .loading
-            margin 0 20px 20px
-            text-align center
-            padding 20px 0
-            .loader
-              position relative
-              margin 0 auto
-              width 4px
-              height 20px
-              background $hover_color
-              overflow visible
-              transform scale(1)
-              animation loader 0.3s infinite alternate-reverse linear
-              &::before
-                margin -10px 0 0 -10px
-                transform scaleY(.3)
-                transform-origin 50% 50%
-                animation loader 0.3s .25s infinite alternate-reverse linear
-              &::after
-                margin -10px 0 0 6px
-                transform scaleY(.5)
-                transform-origin 50% 50%
-                animation loader 0.3s .5s infinite alternate-reverse linear
-            .loader::before, .loader::after
-              position absolute
-              left 50%
-              top 50%
-              width 4px
-              height 20px
-              content ''
-              background $hover_color
-            .cart-list
-              margin 0
-              padding 0
-              list-style-type none
-            .cart-total
-              padding 15px 20px
-              background #fafafa
-            .msg
-              padding 20px 0 20px
-          .cart-menu .loading,.msg
-            text-align center
-            margin 0 20px 20px
-            padding 20px 0 20px
-        @keyframes loader
-          0%
-            transform scaleY(0.5)
-            opacity 0.2
-          100%
+      color $hover_color
+      background #fff
+    .cart-mini
+      position relative
+      z-index 32
+      display block
+      height 40px
+      line-height 40px
+      text-align center
+      color $font_color
+      background $bg_color
+      i
+        margin-right 4px
+        font-size 20px
+        line-height 20px
+        vertical-align -4px
+    .cart-menu
+      position absolute
+      right 0
+      top 40px
+      z-index 31
+      width 316px
+      height 0
+      color $bg_color
+      background #fff
+      box-shadow 0 2px 10px rgba(0, 0, 0, 0.15)
+      transition height 0.3s
+      .menu-content
+        padding 20px 0 0
+        .loading
+          margin 0 20px 20px
+          text-align center
+          padding 20px 0
+          .loader
+            position relative
+            margin 0 auto
+            width 4px
+            height 20px
+            background $hover_color
+            overflow visible
             transform scale(1)
-            opacity 1  
+            animation loader 0.3s infinite alternate-reverse linear
+            &::before
+              margin -10px 0 0 -10px
+              transform scaleY(.3)
+              transform-origin 50% 50%
+              animation loader 0.3s .25s infinite alternate-reverse linear
+            &::after
+              margin -10px 0 0 6px
+              transform scaleY(.5)
+              transform-origin 50% 50%
+              animation loader 0.3s .5s infinite alternate-reverse linear
+          .loader::before, .loader::after
+            position absolute
+            left 50%
+            top 50%
+            width 4px
+            height 20px
+            content ''
+            background $hover_color
+          .cart-list
+            margin 0
+            padding 0
+            list-style-type none
+          .cart-total
+            padding 15px 20px
+            background #fafafa
+          .msg
+            padding 20px 0 20px
+        .cart-menu .loading,.msg
+          text-align center
+          margin 0 20px 20px
+          padding 20px 0 20px
+      @keyframes loader
+        0%
+          transform scaleY(0.5)
+          opacity 0.2
+        100%
+          transform scale(1)
+          opacity 1  
 
     .topbar-info
       position relative
