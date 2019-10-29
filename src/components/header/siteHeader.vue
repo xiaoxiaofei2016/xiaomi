@@ -11,47 +11,47 @@
               <span class="text">全部商品分类</span>
             </router-link>
           </li>
-          <li class="nav-item" @mouseenter="enterNav" @mouseleave="leaveNav" :class="{'nav-item-active': isEnterNav}">
+          <li class="nav-item" @mouseenter="enterNav" @mouseleave="leaveNav" :class="{'nav-item-active': isEnterNav}" data-index="0">
             <router-link to="/" class="link">
               <span class="text">小米手机</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="1">
             <router-link to="/" class="link">
               <span class="text">Redmi红米</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="2">
             <router-link to="/" class="link">
               <span class="text">电视</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="3">
             <router-link to="/" class="link">
               <span class="text">笔记本</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="4">
             <router-link to="/" class="link">
               <span class="text">家电</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="5">
             <router-link to="/" class="link">
               <span class="text">路由器</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="6">
             <router-link to="/" class="link">
               <span class="text">智能硬件</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="7">
             <router-link to="/" class="link">
               <span class="text">服务</span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-index="8">
             <router-link to="/" class="link">
               <span class="text">社区</span>
             </router-link>
@@ -255,9 +255,9 @@ export default {
           z-index 2
           text-align right
           transition opacity 0.2s
-          &.fade-out
+        .search-hot-words.fade-out
             opacity 0
-          &.fade-in
+        .search-hot-words.fade-in
             opacity 1
           a
             display inline-block
@@ -286,10 +286,10 @@ export default {
     height: 219px
   .header-nav-menu-active
     border-bottom: 1px solid\9;
-    box-shadow: 0 3px 4px rgba(0,0,0,.18);
-    transition: height .3s,-webkit-box-shadow .2s;
-    transition: box-shadow .2s,height .3s;
-    transition: box-shadow .2s,height .3s,-webkit-box-shadow .2s
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
+    transition: height .3s, box-shadow .2s;
+    transition: box-shadow .2s, height .3s;
+    transition: box-shadow .2s, height .3s, box-shadow .2s
     .container
       .children-list
         margin 0
