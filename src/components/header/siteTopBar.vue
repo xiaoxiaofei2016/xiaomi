@@ -22,7 +22,7 @@
         <span class="sep">|</span>
         <router-link to="" class="title">协议规则</router-link>
         <span class="sep">|</span>
-        <router-link to="" class="topbar-download title" :class="{'active': isShow}" @mouseenter.native.stop="enter" @mouseleave.native.stop="leave">下载app
+        <router-link to="" class="topbar-download title" :class="{'active': isShowQRCode}" @mouseenter.native.stop="enterQRCode" @mouseleave.native.stop="leaveQRCode">下载app
           <span class="appcode">
             <img src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="小米商城" width="90" height="90">小米商城APP
           </span>
@@ -30,8 +30,8 @@
         <span class="sep">|</span>
         <router-link to="" class="title">Select Location</router-link>
       </div>
-      <div class="topbar-cart" :class="[{'topbar-cart-active': isShowCart}]" >
-        <router-link class="cart-mini" to="" @mouseenter.native="enterCart" @mouseleave.native="leaveCart">
+      <div class="topbar-cart" :class="[{'topbar-cart-active': isShowCart}]" @mouseenter="enterCart" @mouseleave="leaveCart">
+        <router-link class="cart-mini" to="" >
           <i class="iconfont icon-cart--copy "></i>
           <i class="iconfont icon-gouwucheman hide"></i>
           购物车
@@ -39,13 +39,13 @@
         </router-link>
         <div class="cart-menu" :style="{height: isShowCart?'100px':'0px'}">
           <div class="menu-content">
-            <div class="loading hide" ref="loading" >
+            <div class="loading" :class="showLoading ? '' : 'hide'" ref="loading" >
               <div class="loader"></div>
             </div>
             <ul class="cart-list hide"></ul>
             <div class="cart-total clearfix hide"></div>
             <div class="msg msg-error hide"></div>
-            <div class="msg msg-empty hide" ref="msg">购物车中还没有商品，赶紧选购吧!</div>
+            <div class="msg msg-empty" ref="msg" :class="showMsg ? '' : 'hide'">购物车中还没有商品，赶紧选购吧!</div>
           </div>
         </div>
       </div>
@@ -68,36 +68,35 @@
 export default {
   data () {
     return {
-      isShow: false,
-      isShowCart: false
+      isShowQRCode: false,
+      isShowCart: false,
+      showLoading: false,
+      showMsg: false
     }
   },
   methods: {
-    enter () {
-      this.isShow = true
+    enterQRCode () {
+      this.isShowQRCode = true
     },
-    leave () {
-      this.isShow = false
+    leaveQRCode () {
+      this.isShowQRCode = false
     },
     enterCart () {
       this.isShowCart = true
+      if (this.isShowCart) {
+        this.showLoading = true
+        setTimeout(() => {
+          this.showLoading = false
+          this.showMsg = true
+        }, 1000)
+      }
     },
     leaveCart () {
       this.isShowCart = false
+      this.showMsg = false
     }
   },
-  mounted() {
-    let loading = this.$refs.loading
-    let msg = this.$refs.msg
-    console.log(this.isShowCart)
-    if (this.isShowCart) {
-      console.log(msg)
-      setTimeout(() =>{
-        console.log(msg)
-        loading.classList.add('hide')
-        msg.classList.remove('hide')
-      }, 1000)
-    }
+  mounted () {
   }
 }
 </script>
@@ -149,7 +148,7 @@ export default {
           margin 18px auto 12px
       .active
         &::before
-          content ""
+          content ''
           position absolute
           bottom 0
           left 50%
@@ -199,9 +198,8 @@ export default {
       box-shadow 0 2px 10px rgba(0, 0, 0, 0.15)
       transition height 0.3s
       .menu-content
-        padding 20px 0 0
         .loading
-          margin 0 20px 20px
+          margin 20px 20px
           text-align center
           padding 20px 0
           .loader
@@ -213,6 +211,14 @@ export default {
             overflow visible
             transform scale(1)
             animation loader 0.3s infinite alternate-reverse linear
+            &::before, &::after
+              position absolute
+              left 50%
+              top 50%
+              width 4px
+              height 20px
+              content ''
+              background $hover_color
             &::before
               margin -10px 0 0 -10px
               transform scaleY(.3)
@@ -223,14 +229,6 @@ export default {
               transform scaleY(.5)
               transform-origin 50% 50%
               animation loader 0.3s .5s infinite alternate-reverse linear
-          .loader::before, .loader::after
-            position absolute
-            left 50%
-            top 50%
-            width 4px
-            height 20px
-            content ''
-            background $hover_color
           .cart-list
             margin 0
             padding 0
@@ -242,7 +240,7 @@ export default {
             padding 20px 0 20px
         .cart-menu .loading,.msg
           text-align center
-          margin 0 20px 20px
+          margin 20px 20px
           padding 20px 0 20px
       @keyframes loader
         0%
@@ -250,7 +248,7 @@ export default {
           opacity 0.2
         100%
           transform scale(1)
-          opacity 1  
+          opacity 1
 
     .topbar-info
       position relative

@@ -69,7 +69,11 @@
         </form>
       </div>
     </div>
-    <div class="header-nav-menu" :style="{display: isShowNav ? 'block': 'none'}" :class="{'slide-down': isShowNav, 'slide-up': !isShowNav, 'header-nav-menu-active': isShowNav}">
+    <div class="header-nav-menu"
+      :style="{display: isShowNav ? 'block': 'none'}"
+      :class="{'slide-down': isShowNav, 'slide-up': !isShowNav, 'header-nav-menu-active': isShowNav}"
+      @mouseenter="enterNav"
+      @mouseleave="leaveNav">
       <div class="container">
         <ul class="children-list clearfix">
           <li class="first">
@@ -161,7 +165,6 @@ export default {
         transform-origin 50% 50%
         transition all .2s
         transform: translateZ(0)
-        
     .header-nav
       float left
       width 850px
@@ -184,8 +187,6 @@ export default {
             padding 26px 0 38px
             text-align right
             color #333333
-
-          
         .nav-item
           float left
           .link
@@ -208,7 +209,6 @@ export default {
           color $hover_color
         .nav-item .link:focus
           outline 0
-        
     .header-search
       float right
       width 296px
@@ -272,7 +272,7 @@ export default {
               color #ffffff
   .header-nav-menu
     position absolute
-    top 100px
+    top 140px
     left 0
     z-index 24
     width 100%
@@ -283,7 +283,7 @@ export default {
   .header-nav-menu.slide-up
     height: 0
   .header-nav-menu.slide-down
-    height: 229px
+    height: 219px
   .header-nav-menu-active
     border-bottom: 1px solid\9;
     box-shadow: 0 3px 4px rgba(0,0,0,.18);
