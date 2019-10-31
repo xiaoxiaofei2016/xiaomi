@@ -70,7 +70,6 @@
       </div>
     </div>
     <div class="header-nav-menu"
-      :style="{display: isShowNav ? 'block': 'none'}"
       :class="{'slide-down': isShowNav, 'slide-up': !isShowNav, 'header-nav-menu-active': isShowNav}"
       @mouseenter="enterNav"
       @mouseleave="leaveNav">
@@ -105,11 +104,11 @@ export default {
     }
   },
   methods: {
-    enterNav () {
+    enterNav (index) {
       this.isEnterNav = true
       this.isShowNav = true
     },
-    leaveNav () {
+    leaveNav (index) {
       this.isEnterNav = false
       this.isShowNav = false
     },
@@ -277,7 +276,6 @@ export default {
     z-index 24
     width 100%
     height 0
-    border-top 1px solid #e0e0e0
     background #fff
     overflow hidden
   .header-nav-menu.slide-up
@@ -286,6 +284,7 @@ export default {
     height: 219px
   .header-nav-menu-active
     border-bottom: 1px solid\9;
+    border-top 1px solid #e0e0e0
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
     transition: height .3s, box-shadow .2s;
     transition: box-shadow .2s, height .3s;
