@@ -10,6 +10,49 @@
             <router-link class="link-category" to="/">
               <span class="text">全部商品分类</span>
             </router-link>
+            <div class="site-category" style="display: block">
+              <ul class="site-category-list clearfix">
+                <li class="category-item category-item-active">
+                  <router-link to="/" class="title">手机电话卡
+                    <i class="iconfont"></i>
+                  </router-link>
+                  <div class="children clearfix children-col-4">
+                    <ul class="children-list children-list-col children-list-col-1">
+                      <li>
+                        <router-link to="/" class="link clearfix">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">Redmi 8A</span>
+                        </router-link>
+                      </li>
+                    </ul>
+                    <ul class="children-list children-list-col children-list-col-2">
+                      <li>
+                        <router-link to="/" class="link clearfix">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">Redmi 8A</span>
+                        </router-link>
+                      </li>
+                    </ul>
+                    <ul class="children-list children-list-col children-list-col-3">
+                      <li>
+                        <router-link to="/" class="link clearfix">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">Redmi 8A</span>
+                        </router-link>
+                      </li>
+                    </ul>
+                    <ul class="children-list children-list-col children-list-col-4">
+                      <li>
+                        <router-link to="/" class="link clearfix">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">Redmi 8A</span>
+                        </router-link>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item" @mouseenter="enterNav" @mouseleave="leaveNav" :class="{'nav-item-active': isEnterNav}" data-index="0">
             <router-link to="/" class="link">
@@ -100,7 +143,8 @@ export default {
       showAll: true,
       isEnterNav: false,
       isSearch: false,
-      isShowNav: false
+      isShowNav: false,
+      leftNav: []
     }
   },
   methods: {
@@ -115,6 +159,12 @@ export default {
     isShowSearch () {
       this.isSearch = true
     }
+  },
+  created () {
+    this.$http.get('http://localhost:8080/static/leftNav.json').then((res) => {
+      console.log(res)
+      this.leftNav = res.data.nav
+    })
   }
 }
 </script>
@@ -186,6 +236,91 @@ export default {
             padding 26px 0 38px
             text-align right
             color #333333
+          .site-category
+            // display none
+            position absolute
+            top 88px
+            left -92px
+            z-index: 21
+            width 234px
+            height 460px
+            font-size 14px
+            .site-category-list
+              height 418px
+              margin 0
+              padding 20px 0
+              list-style-type none
+              border 1px solid $hover_color
+              color $bg_color
+              background #fff
+              .category-item
+                .title
+                  position relative
+                  display block
+                  padding-left 30px
+                  height 42px
+                  line-height 42px
+                  color $bg_color
+                  i[class*=iconfont]
+                    position absolute
+                    top 12px
+                    right 20px
+                    font-size 16px
+                    line-height 16px
+                    color #e0e0e0
+                .children
+                  display none
+                  position absolute
+                  left 234px
+                  top 0
+                  z-index 24
+                  height 458px
+                  border 1px solid #e0e0e0
+                  border-left 0
+                  background #fff
+                  box-shadow 0 8px 16px rgba(0,0,0,.18)
+                .children-col-4
+                  width 992px
+                  .children-list
+                    height 458px
+                    margin 0
+                    padding 2px 0
+                    list-style-type none
+                  .children-list-col
+                    float left
+                    width 265px
+                    li
+                      position relative
+                      float left
+                      width 265px
+                      height 76px
+                      .link
+                        display block
+                        padding 18px 20px
+                        line-height 40px
+                        color #333
+                        transition color .2s
+                        &:hover
+                          color $hover_color
+                          .thumb
+                            float left
+                            margin-right 12px
+                            vertical-align middle
+                          .text
+                            float left
+                            width 172px
+                            line-height 40px
+                            white-space nowrap
+                            text-overflow ellipsis
+                            overflow hidden
+              .category-item-active .title
+                background $hover_color
+                color: #fff
+              .category-item-active i[class*=iconfont]
+                color #fff
+                color hsla(0,0%,100%,.5)
+              .category-item-active .children
+                display block
         .nav-item
           float left
           .link

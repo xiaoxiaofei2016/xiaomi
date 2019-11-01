@@ -5,21 +5,20 @@ window.onload = function () {
       index = $(this).index() // 获取当前是第几个小圆点
       $(this).addClass('active').siblings().removeClass('active') // 给小圆点添加鼠标经过的class
       $('.item').eq(index).fadeIn().siblings().fadeOut() // fadeIn是淡入    图片淡入淡出效果
-    }) // ------右箭头
-    $('.lr-tab .right').click(function () {
+    })
+    $('.lr-tab .right').click(function () { // ------右箭头
       index++
       if (index > 4) index = 0 // 当到最后一张图，再跳转到第一张
       $('.item').eq(index).fadeIn().siblings().fadeOut()
       $('.bottom-btn').eq(index).addClass('active').siblings().removeClass('active')
     })
-    //------左箭头
-    $('.lr-tab .left').click(function () {
+    $('.lr-tab .left').click(function () { // ------左箭头
       index--
       if (index < 0) index = 4
       $('.item').eq(index).fadeIn().siblings().fadeOut()
       $('.bottom-btn').eq(index).addClass('active').siblings().removeClass('active')
-    }) // -------鼠标离开图片，再进行自动轮播
-    function autoplay() {
+    })
+    function autoplay () { // -------鼠标离开图片，再进行自动轮播
       time = setInterval(function () {
         index++
         if (index > 4) index = 0

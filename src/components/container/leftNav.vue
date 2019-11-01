@@ -46,11 +46,11 @@ export default {
   data () {
     return {
       imgs: [
-        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4f5e5eb570bd8c932c41d111ecb4838.jpg?w=2452&h=920'},
-        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/30bb7101afd301b77d8558bf43dff8b0.jpg?thumb=1&w=1533&h=575&f=webp&q=90'},
-        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a845ff7f63615deed337967fd1d412e7.jpg?thumb=1&w=1533&h=575&f=webp&q=90'},
+        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a012edbf0cf3bf3b1de22b78c19ad050.jpg?w=2452&h=920'},
+        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8569a4aa8489b7c666d097b90c2e495e.jpg?thumb=1&w=1533&h=575&f=webp&q=90'},
+        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c45b83231b290d29c4cc150deb513383.jpg?thumb=1&w=1533&h=575&f=webp&q=90'},
         {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c6d5f1c4b27a244efe1433a411069f35.jpg?thumb=1&w=1533&h=575&f=webp&q=90'},
-        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6bd4174b8c5aad67a64864a5716ad152.jpg?thumb=1&w=1533&h=575&f=webp&q=90'}
+        {imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b642c13442fc0ca455394f34e59a22b3.jpg?thumb=1&w=1533&h=575&f=webp&q=90'}
       ]
     }
   }
