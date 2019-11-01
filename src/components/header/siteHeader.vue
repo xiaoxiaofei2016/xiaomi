@@ -309,7 +309,7 @@ export default {
                           .text
                             float left
                             width 172px
-                            // line-height 40px
+                            line-height 40px
                             white-space nowrap
                             text-overflow ellipsis
                             overflow hidden
