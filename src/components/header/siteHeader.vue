@@ -307,7 +307,7 @@ export default {
                             margin-right 12px
                             vertical-align middle
                           .text
-                            float left
+                            // float left
                             width 172px
                             line-height 40px
                             white-space nowrap
