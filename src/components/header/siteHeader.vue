@@ -482,5 +482,4 @@ export default {
             margin 0
             line-height 20px
             color $hover_color
-
 </style>
