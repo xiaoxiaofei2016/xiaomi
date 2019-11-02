@@ -11,9 +11,13 @@
               <span class="text">全部商品分类</span>
             </router-link>
             <div class="site-category" style="display: block">
-              <ul class="site-category-list clearfix">
-                <li class="category-item category-item-active">
-                  <router-link to="/" class="title">手机电话卡
+              <ul class="site-category-list clearfix site-category-list-custom">
+                <li class="category-item" 
+                  :class="isShowLeftNav ? 'category-item-active' : ''" 
+                  @mouseenter="enterLeftNav()" @mouseleave="leaveLeftNav()"
+                  v-for="(item, index) in leftNav" :key="index"
+                  >
+                  <router-link to="/" class="title">{{item.name}}
                     <i class="iconfont"></i>
                   </router-link>
                   <div class="children clearfix children-col-4">
@@ -54,37 +58,37 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item" @mouseenter="enterNav" @mouseleave="leaveNav" :class="{'nav-item-active': isEnterNav}" data-index="0">
+          <li class="nav-item" @mouseenter="enterNav(0)" @mouseleave="leaveNav(0)" :class="{'nav-item-active': isEnterNav}" data-index="0">
             <router-link to="/" class="link">
               <span class="text">小米手机</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="1">
+          <li class="nav-item" data-index="1" @mouseenter="enterNav(1)" @mouseleave="leaveNav(1)">
             <router-link to="/" class="link">
               <span class="text">Redmi红米</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="2">
+          <li class="nav-item" data-index="2" @mouseenter="enterNav(2)" @mouseleave="leaveNav(2)">
             <router-link to="/" class="link">
               <span class="text">电视</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="3">
+          <li class="nav-item" data-index="3" @mouseenter="enterNav(3)" @mouseleave="leaveNav(3)">
             <router-link to="/" class="link">
               <span class="text">笔记本</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="4">
+          <li class="nav-item" data-index="4" @mouseenter="enterNav(4)" @mouseleave="leaveNav(4)">
             <router-link to="/" class="link">
               <span class="text">家电</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="5">
+          <li class="nav-item" data-index="5" @mouseenter="enterNav(5)" @mouseleave="leaveNav(5)">
             <router-link to="/" class="link">
               <span class="text">路由器</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="6">
+          <li class="nav-item" data-index="6" @mouseenter="enterNav(6)" @mouseleave="leaveNav(6)">
             <router-link to="/" class="link">
               <span class="text">智能硬件</span>
             </router-link>
@@ -144,20 +148,30 @@ export default {
       isEnterNav: false,
       isSearch: false,
       isShowNav: false,
-      leftNav: []
+      leftNav: [],
+      isShowLeftNav: false
     }
   },
   methods: {
     enterNav (index) {
       this.isEnterNav = true
       this.isShowNav = true
+      console.log(index.target.dataset.index)
+      index = event.target.dataset.index
     },
     leaveNav (index) {
       this.isEnterNav = false
       this.isShowNav = false
+      index = event.target.dataset.index
     },
     isShowSearch () {
       this.isSearch = true
+    },
+    enterLeftNav () {
+      this.isShowLeftNav = true
+    },
+    leaveLeftNav () {
+      this.isShowLeftNav = false
     }
   },
   created () {
@@ -253,6 +267,11 @@ export default {
               border 1px solid $hover_color
               color $bg_color
               background #fff
+            .site-category-list-custom
+              height 420px
+              border 0
+              color #ffffff
+              background rgba(105,101,101,0.6)
               .category-item
                 .title
                   position relative
@@ -288,7 +307,7 @@ export default {
                     list-style-type none
                   .children-list-col
                     float left
-                    width 265px
+                    width 248px
                     li
                       position relative
                       float left
@@ -302,17 +321,17 @@ export default {
                         transition color .2s
                         &:hover
                           color $hover_color
-                          .thumb
-                            float left
-                            margin-right 12px
-                            vertical-align middle
-                          .text
-                            float left
-                            width 172px
-                            line-height 40px
-                            white-space nowrap
-                            text-overflow ellipsis
-                            overflow hidden
+                        .thumb
+                          float left
+                          margin-right 12px
+                          vertical-align middle
+                        .text
+                          float left
+                          width 172px
+                          line-height 40px
+                          white-space nowrap
+                          text-overflow ellipsis
+                          overflow hidden
               .category-item-active .title
                 background $hover_color
                 color: #fff

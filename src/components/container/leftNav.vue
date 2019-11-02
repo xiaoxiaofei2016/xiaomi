@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .home-hero-container {
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 .home-hero {
   position: relative;
@@ -73,6 +73,7 @@ export default {
   background-color: #ff6700;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .item {
