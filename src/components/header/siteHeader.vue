@@ -12,8 +12,8 @@
             </router-link>
             <div class="site-category" style="display: block">
               <ul class="site-category-list clearfix site-category-list-custom">
-                <li class="category-item" 
-                  :class="isShowLeftNav ? 'category-item-active' : ''" 
+                <li class="category-item"
+                  :class="isShowLeftNav ? 'category-item-active' : ''"
                   @mouseenter="enterLeftNav()" @mouseleave="leaveLeftNav()"
                   v-for="(item, index) in leftNav" :key="index"
                   >
@@ -63,32 +63,32 @@
               <span class="text">小米手机</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="1" @mouseenter="enterNav(1)" @mouseleave="leaveNav(1)">
+          <li class="nav-item" data-index="1" @mouseenter="enterNav(1)" @mouseleave="leaveNav(1)" :class="{'nav-item-active': isEnterNav}">
             <router-link to="/" class="link">
               <span class="text">Redmi红米</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="2" @mouseenter="enterNav(2)" @mouseleave="leaveNav(2)">
+          <li class="nav-item" data-index="2" @mouseenter="enterNav(2)" @mouseleave="leaveNav(2)" :class="{'nav-item-active': isEnterNav}">
             <router-link to="/" class="link">
               <span class="text">电视</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="3" @mouseenter="enterNav(3)" @mouseleave="leaveNav(3)">
+          <li class="nav-item" data-index="3" @mouseenter="enterNav(3)" @mouseleave="leaveNav(3)" :class="{'nav-item-active': isEnterNav}">
             <router-link to="/" class="link">
               <span class="text">笔记本</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="4" @mouseenter="enterNav(4)" @mouseleave="leaveNav(4)">
+          <li class="nav-item" data-index="4" @mouseenter="enterNav(4)" @mouseleave="leaveNav(4)" :class="{'nav-item-active': isEnterNav}">
             <router-link to="/" class="link">
               <span class="text">家电</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="5" @mouseenter="enterNav(5)" @mouseleave="leaveNav(5)">
+          <li class="nav-item" data-index="5" @mouseenter="enterNav(5)" @mouseleave="leaveNav(5)" :class="{'nav-item-active': isEnterNav}">
             <router-link to="/" class="link">
               <span class="text">路由器</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="6" @mouseenter="enterNav(6)" @mouseleave="leaveNav(6)">
+          <li class="nav-item" data-index="6" @mouseenter="enterNav(6)" @mouseleave="leaveNav(6)" :class="{'nav-item-active': isEnterNav}">
             <router-link to="/" class="link">
               <span class="text">智能硬件</span>
             </router-link>
@@ -156,8 +156,8 @@ export default {
     enterNav (index) {
       this.isEnterNav = true
       this.isShowNav = true
-      console.log(index.target.dataset.index)
       index = event.target.dataset.index
+      console.log(index)
     },
     leaveNav (index) {
       this.isEnterNav = false
@@ -481,6 +481,5 @@ export default {
           .price
             margin 0
             line-height 20px
-            color $hover_color
-            
+            color $hover_color  
 </style>
