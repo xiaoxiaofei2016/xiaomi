@@ -177,7 +177,7 @@ export default {
   .backtop
     margin-top 14px
     border-top 1px solid #f5f5f5
-    visibility hidden
+    // visibility hidden
     &.active
       visibility visible
 
