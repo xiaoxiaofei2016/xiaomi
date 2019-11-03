@@ -189,6 +189,20 @@ export default {
         font-size 22px
         line-height 1
         color $hover_color
+      .btn
+        display inline-block
+        width 158px
+        height 38px
+        padding 0
+        margin 0
+        border 1px solid $font_color
+        font-size 14px
+        line-height 38px
+        text-align center
+        color $font_color
+        cursor pointer
+        -webkit-transition all .4s
+        transition all .4s
       .btn-line-primary
         border-color $hover_color
         background #fff
