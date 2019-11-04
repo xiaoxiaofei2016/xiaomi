@@ -93,7 +93,7 @@ export default {
   },
   mounted () {
     window.addEventListener('scroll', this.scrollToTop)
-    window.onresize = () => {
+    window.onresize = () => { // onresize 事件会在窗口或框架被调整大小时发生
       return (() => {
         this.screenWidth = document.body.clientWidth
       })()
