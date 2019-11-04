@@ -481,5 +481,5 @@ export default {
           .price
             margin 0
             line-height 20px
-            color $hover_color  
+            color $hover_color
 </style>

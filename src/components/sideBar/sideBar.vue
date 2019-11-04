@@ -1,6 +1,6 @@
 <template>
-  <div class="home-tool-bar home-tool-bar-large">
-    <router-link to="/" class="item">
+  <div class="home-tool-bar " :class="[isSmall ? 'home-tool-bar-small' : '', isSmall ? 'mini' : '']">
+    <router-link to="/" class="item item-image">
       <div class="icon">
         <img src="https://i8.mifile.cn/b2c-mimall-media/98a23aae70f25798192693f21c4d4039.png" alt="" class="static">
         <img src="https://i8.mifile.cn/b2c-mimall-media/74c4fcb4475af8308e9a670db9c01fdf.png" alt="" class="hover">
@@ -49,7 +49,7 @@
         购物车
       </span>
     </router-link>
-    <router-link to="/" class="item backtop" @click.native="backtop" ref="backtop" :class="isback ? 'active' : ''">
+    <router-link to="/" class="item backtop" @click.native="backtop" v-if="btnFlag">
       <div class="icon">
         <img src="https://i1.mifile.cn/f/i/2018/home/totop.png" alt="" class="static">
         <img src="https://i1.mifile.cn/f/i/2018/home/totop_hover.png" alt="" class="hover">
@@ -63,25 +63,71 @@
 export default {
   methods: {
     backtop () {
-      document.body.scrollTop = 0
-      document.documentElement.scrollTop = 0
+      // document.body.scrollTop = 0
+      // document.documentElement.scrollTop = 0
+
+      let timer = setInterval(() => {
+        let ispeed = Math.floor(-this.scrollTop / 5)
+        document.documentElement.scrollTop = document.body.scrollTop = this.scrollTop + ispeed
+        if (this.scrollTop === 0) {
+          clearInterval(timer)
+        }
+      }, 16)
     },
-    scrollfunction () {
-      console.log(123)
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        this.$refs.backtop.style.display = 'block'
+    scrollToTop () {
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      this.scrollTop = scrollTop
+      if (this.scrollTop > 300) {
+        this.btnFlag = true
       } else {
-        this.$refs.backtop.style.display = 'none'
+        this.btnFlag = false
       }
     }
   },
   data () {
     return {
-      isback: false
+      isback: false,
+      btnFlag: false,
+      isSmall: false,
+      screenWidth: document.body.clientWidth
     }
   },
-  created () {
-    this.scrollfunction()
+  mounted () {
+    window.addEventListener('scroll', this.scrollToTop)
+    window.onresize = () => {
+      return (() => {
+        this.screenWidth = document.body.clientWidth
+      })()
+    }
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.scrollToTop)
+    window.onresize = null
+  },
+  watch: {
+    screenWidth (newval, oldval) {
+      // if (!this.isSmall) {
+      //   this.screenWidth = val
+      //   if (this.screenWidth < 1300) {
+      //     this.isSmall = true
+      //   }
+      //   this.isSmall = true
+      //   let that = this
+      //   setTimeout(() => {
+      //     that.isSmall = false
+      //   }, 400);
+      // }
+      if (oldval < 1400) {
+        this.isSmall = true
+      } else {
+        this.isSmall = false
+      }
+      if (newval < 1400) {
+        this.isSmall = true
+      } else {
+        this.isSmall = false
+      }
+    }
   }
 }
 </script>
@@ -190,5 +236,61 @@ export default {
     right 0
     left auto
     margin-left 0
+  .item
+    width 25px
+    height 40px
+    .icon
+      width 20px
+      height 20px
+      padding-top 10px
+      img
+        width 20px
+        height 20px
+    .text
+      display none
+      position absolute
+      left 0
+      top 50%
+      height 28px
+      line-height 28px
+      padding 0 8px
+      background-color #fff
+      border 1px solid #f5f5f5
+      text-align center
+      white-space nowrap
+      &::after,&::before
+        content ''
+        position absolute
+        top 50%
+        width 0
+        height 0
+        margin-top -6px
+        border-width 6px
+        border-style solid
+        overflow hidden
+      &::after
+        border-color rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #fff
+        right -12px
+        z-index 2
+      &::before
+        border-color rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #f5f5f5
+        right -13px
+        z-index 1
+    .pop-content
+      &::after,&::before
+        top 10px
+        border-width 6px
+      &::after
+        right -12px
+      &::before
+        right -13px
+    &:hover .text
+      display block
+      -webkit-transform translate3d(-115%,-50%,0)
+      transform translate3d(-115%,-50%,0)
+      color #757575
+  .item-image
+    &:hover .text
+      display none
 
 </style>
