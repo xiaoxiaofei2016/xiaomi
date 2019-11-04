@@ -84,10 +84,20 @@ export default {
     width 992px
     margin 0 0 -14px -14px
     height 614px
-    margin 0
+    // margin 0
     padding 0
     list-style-type none
-    .brick-item-m
+    .brick-item
+      position relative
+      z-index 1
+      float left
+      width 234px
+      height 614px
+      margin-left 14px
+      margin-bottom 14px
+      background #fff
+      -webkit-transition all .2s linear
+      transition all .2s linear
       .figure-img
         margin 0 auto 18px
       .price
@@ -101,6 +111,10 @@ export default {
         height 160px
       .title
         margin 0 10px 2px
+        text-align center
+        text-overflow ellipsis
+        white-space nowrap
+        overflow hidden
       .price
         margin 0 10px 14px
       .desc

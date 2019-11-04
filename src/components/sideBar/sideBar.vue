@@ -291,5 +291,4 @@ export default {
   .item-image
     &:hover .text
       display none
-
 </style>
