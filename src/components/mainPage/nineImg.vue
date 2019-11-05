@@ -12,26 +12,30 @@
     <div class="box-bd clearfix">
       <div class="row">
         <div class="span4">
-          <div class="brick-promo-list clearfix">
+          <ul class="brick-promo-list clearfix">
             <li class="brick-item brick-item-1">
               <router-link to="/">
                 <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt=""/>
               </router-link>
             </li>
-          </div>
+          </ul>
         </div>
         <div class="span16">
           <ul class="brick-list clearfix">
-            <li class="brick-item brick-item-m brick-item-m-2">
+            <li class="brick-item brick-item-m brick-item-m-2" v-for="(item, index) in nineImg" :key="index">
               <router-link to="">
                 <div class="figure figure-img">
-                  <img src="" alt="" width="160" height="160">
+                  <img :src="item.imgUrl" alt="" width="160" height="160">
                 </div>
-                <h3 class="title">小米9</h3>
-                <p class="desc">5G双卡全网通</p>
+                <h3 class="title">
+                  {{item.title}}
+                </h3>
+                <p class="desc">{{item.desc}}</p>
                 <p class="price">
-                  <span class="num">3699</span>
-                  <span>起</span>
+                  <span class="num">{{item.newprice}}</span>
+                  <del class v-show="item.oldprice">
+                    <span class="num">{{item.oldprice}}</span>
+                  </del>
                 </p>
               </router-link>
             </li>
@@ -44,6 +48,16 @@
 
 <script>
 export default {
+  data () {
+    return {
+      nineImg: []
+    }
+  },
+  created () {
+    this.$http.get('http://localhost:8080/static/nineimg.json').then(res => {
+      this.nineImg = res.data.nineImg
+    })
+  }
 }
 </script>
 
@@ -98,11 +112,15 @@ export default {
       background #fff
       -webkit-transition all .2s linear
       transition all .2s linear
+      &:hover
+        z-index 2
+        -webkit-box-shadow 0 15px 30px rgba(0,0,0,.1)
+        box-shadow 0 15px 30px rgba(0,0,0,.1)
+        -webkit-transform translate3d(0,-2px,0)
+        transform translate3d(0,-2px,0)
       .figure-img
         margin 0 auto 18px
-      .price
-        text-align center
-        color #ff6700
+ 
     .brick-item-m-2
       height 260px
       padding 20px 0
@@ -110,18 +128,32 @@ export default {
         width 160px
         height 160px
       .title
-        margin 0 10px 2px
+        margin 0 10px 4px
         text-align center
         text-overflow ellipsis
         white-space nowrap
         overflow hidden
+        color #333
+        font-size 14px
+        font-weight 400
       .price
         margin 0 10px 14px
+        text-align center
+        color #ff6700
+        .num
+          font-size 14px
+        del
+          margin-left 0.5em
+          color $font_color
       .desc
         margin 0 10px 10px
         height 18px
         font-size 12px
         color $font_color
+        text-align center
+        text-overflow ellipsis
+        white-space nowrap
+        overflow hidden
 .xm-plain-box
   .box-hd
     position relative
@@ -140,7 +172,7 @@ export default {
       .more-link
         font-size 16px
         line-height 58px
-        color #424242
+        color $bg_color
         -webkit-transition all .4s
         transition all .4s
         .iconfont

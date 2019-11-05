@@ -5,10 +5,15 @@
       <v-img :images="imgs[0].imgUrl"></v-img>
       <v-nineImg></v-nineImg>
       <v-img :images="imgs[1].imgUrl"></v-img>
+      <v-elevenImg></v-elevenImg>
       <v-img :images="imgs[2].imgUrl"></v-img>
+      <!-- <v-elevenImg></v-elevenImg> -->
       <v-img :images="imgs[3].imgUrl"></v-img>
+      <!-- <v-elevenImg></v-elevenImg> -->
       <v-img :images="imgs[4].imgUrl"></v-img>
+      <!-- <v-elevenImg></v-elevenImg> -->
       <v-img :images="imgs[5].imgUrl"></v-img>
+      <!-- <v-elevenImg></v-elevenImg> -->
       <v-img :images="imgs[6].imgUrl"></v-img>
     </div>
   </div>
@@ -18,11 +23,13 @@
 import flashPurchase from './flash-purchase.vue'
 import img from './img.vue'
 import nineImg from './nineImg.vue'
+import elevenImg from './elevenImg.vue'
 export default {
   components: {
     'v-flashPurchase': flashPurchase,
     'v-img': img,
-    'v-nineImg': nineImg
+    'v-nineImg': nineImg,
+    'v-elevenImg': elevenImg
   },
   data () {
     return {
