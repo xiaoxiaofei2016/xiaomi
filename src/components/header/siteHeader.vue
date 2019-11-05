@@ -58,47 +58,47 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item" @mouseenter="enterNav(0)" @mouseleave="leaveNav(0)" :class="{'nav-item-active': isEnterNav}" data-index="0">
+          <li class="nav-item" @mouseenter="enterNav(0)" @mouseleave="leaveNav(0)" :class="{'nav-item-active': isEnterNav[0]}" data-index="0">
             <router-link to="/" class="link">
               <span class="text">小米手机</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="1" @mouseenter="enterNav(1)" @mouseleave="leaveNav(1)" :class="{'nav-item-active': isEnterNav}">
+          <li class="nav-item" data-index="1" @mouseenter="enterNav(1)" @mouseleave="leaveNav(1)" :class="{'nav-item-active': isEnterNav[1]}">
             <router-link to="/" class="link">
               <span class="text">Redmi红米</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="2" @mouseenter="enterNav(2)" @mouseleave="leaveNav(2)" :class="{'nav-item-active': isEnterNav}">
+          <li class="nav-item" data-index="2" @mouseenter="enterNav(2)" @mouseleave="leaveNav(2)" :class="{'nav-item-active': isEnterNav[2]}">
             <router-link to="/" class="link">
               <span class="text">电视</span>
-            </router-link>
+             </router-link>
           </li>
-          <li class="nav-item" data-index="3" @mouseenter="enterNav(3)" @mouseleave="leaveNav(3)" :class="{'nav-item-active': isEnterNav}">
+          <li class="nav-item" data-index="3" @mouseenter="enterNav(3)" @mouseleave="leaveNav(3)" :class="{'nav-item-active': isEnterNav[3]}">
             <router-link to="/" class="link">
               <span class="text">笔记本</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="4" @mouseenter="enterNav(4)" @mouseleave="leaveNav(4)" :class="{'nav-item-active': isEnterNav}">
+          <li class="nav-item" data-index="4" @mouseenter="enterNav(4)" @mouseleave="leaveNav(4)" :class="{'nav-item-active': isEnterNav[4]}">
             <router-link to="/" class="link">
               <span class="text">家电</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="5" @mouseenter="enterNav(5)" @mouseleave="leaveNav(5)" :class="{'nav-item-active': isEnterNav}">
+          <li class="nav-item" data-index="5" @mouseenter="enterNav(5)" @mouseleave="leaveNav(5)" :class="{'nav-item-active': isEnterNav[5]}">
             <router-link to="/" class="link">
               <span class="text">路由器</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="6" @mouseenter="enterNav(6)" @mouseleave="leaveNav(6)" :class="{'nav-item-active': isEnterNav}">
+          <li class="nav-item" data-index="6" @mouseenter="enterNav(6)" @mouseleave="leaveNav(6)" :class="{'nav-item-active': isEnterNav[6]}">
             <router-link to="/" class="link">
               <span class="text">智能硬件</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="7">
+          <li class="nav-item" data-index="7" @mouseenter="enterNav(7)" @mouseleave="leaveNav(7)" :class="{'nav-item-active': isEnterNav[7]}">
             <router-link to="/" class="link">
               <span class="text">服务</span>
             </router-link>
           </li>
-          <li class="nav-item" data-index="8">
+          <li class="nav-item" data-index="8" @mouseenter="enterNav(8)" @mouseleave="leaveNav(8)" :class="{'nav-item-active': isEnterNav[8]}">
             <router-link to="/" class="link">
               <span class="text">社区</span>
             </router-link>
@@ -117,18 +117,19 @@
       </div>
     </div>
     <div class="header-nav-menu"
-      :class="{'slide-down': isShowNav, 'slide-up': !isShowNav, 'header-nav-menu-active': isShowNav}"
-      @mouseenter="enterNav"
-      @mouseleave="leaveNav">
+      :class="{'slide-down': isShowNav[index], 'slide-up': !isShowNav[index], 'header-nav-menu-active': isShowNav[index]}"
+      @mouseenter="enterNav(index)"
+      @mouseleave="leaveNav(index)"
+      >
       <div class="container">
         <ul class="children-list clearfix">
-          <li class="first">
+          <li class="first"  v-for="(item, index) in topNav[index].list" :key="index">
             <router-link to="/">
               <div class="figure figure-thumb">
-                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d19da60f9f62eb2aa5dcdbd7df19f0f.png?thumb=1&w=200&h=138&f=webp&q=90" alt="" width="160" height="110">
+                <img :src="item.img" alt="" width="160" height="110">
               </div>
-              <div class="title">小米9</div>
-              <p class="price">3699元起</p>
+              <div class="title">{{item.title}}</div>
+              <p class="price">{{item.price}}</p>
             </router-link>
           </li>
         </ul>
@@ -145,24 +146,50 @@ export default {
         '0', '1', '2', '3'
       ],
       showAll: true,
-      isEnterNav: false,
+      isEnterNav: [
+        false, false, false, false, false, false, false, false, false
+      ],
       isSearch: false,
-      isShowNav: false,
+      isShowNav: [
+        false, false, false, false, false, false, false
+      ],
       leftNav: [],
-      isShowLeftNav: false
+      isShowLeftNav: false,
+      topNav: [],
+      index: 6
     }
   },
   methods: {
     enterNav (index) {
-      this.isEnterNav = true
-      this.isShowNav = true
-      index = event.target.dataset.index
-      console.log(index)
+      let isEnterNav = this.isEnterNav.slice(0);
+
+      isEnterNav[index] = true;
+      this.isEnterNav = isEnterNav;
+      // this.isEnterNav[index] = true
+      if (index < 7) {
+        let isShowNav = this.isShowNav;
+        isShowNav[index] = true
+        this.isShowNav = isShowNav;
+        // this.isShowNav[index] = true
+        console.log(event.target.dataset.index)
+        this.index = event.target.dataset.index
+      }
+      // console.log(index)
+      
     },
     leaveNav (index) {
-      this.isEnterNav = false
-      this.isShowNav = false
-      index = event.target.dataset.index
+      console.log('leaveNav-------------------', index)
+      let isEnterNav = this.isEnterNav.slice(0);
+
+      isEnterNav[index] = false
+      this.isEnterNav = isEnterNav;
+      // index = event.target.dataset.index
+      if (index < 7) {
+        let isShowNav = this.isShowNav;
+        isShowNav[index] = false
+        this.isShowNav = isShowNav;
+        this.index = event.target.dataset.index
+      }
     },
     isShowSearch () {
       this.isSearch = true
@@ -175,9 +202,15 @@ export default {
     }
   },
   created () {
-    this.$http.get('http://localhost:8080/static/leftNav.json').then((res) => {
+    this.$nextTick(() => {
+      this.$http.get('http://localhost:8080/static/leftNav.json').then((res) => {
       console.log(res)
       this.leftNav = res.data.nav
+    })
+    this.$http.get('http://localhost:8080/static/topNav.json').then(res => {
+      this.topNav = res.data.topNav
+      console.log(res.data.topNav[this.index].list)
+    })
     })
   }
 }
