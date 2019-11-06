@@ -66,7 +66,7 @@ export default {
   created () {
     setInterval(() => {
       this.leftTimer()
-    }, 1000);
+    }, 1000)
   }
 }
 </script>
