@@ -13,43 +13,44 @@
             <div class="site-category" style="display: block">
               <ul class="site-category-list clearfix site-category-list-custom">
                 <li class="category-item"
-                  :class="isShowLeftNav ? 'category-item-active' : ''"
+                  :class="isShowLeftNav[index2] ? 'category-item-active' : ''"
                   @mouseenter="enterLeftNav()" @mouseleave="leaveLeftNav()"
+                  :data-index="index2"
                   v-for="(item, index) in leftNav" :key="index"
                   >
                   <router-link to="/" class="title">{{item.name}}
                     <i class="iconfont"></i>
                   </router-link>
                   <div class="children clearfix children-col-4">
-                    <ul class="children-list children-list-col children-list-col-1">
-                      <li>
+                    <ul class="children-list children-list-col children-list-col-1" v-if="item.list.length">
+                      <li v-for="(list, i) in item.list[index2].col1" :key="i">
                         <router-link to="/" class="link clearfix">
-                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
-                          <span class="text">Redmi 8A</span>
+                          <img :src="list.img" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">{{list.title}}</span>
                         </router-link>
                       </li>
                     </ul>
-                    <ul class="children-list children-list-col children-list-col-2">
-                      <li>
+                    <ul class="children-list children-list-col children-list-col-2" v-if="item.list.length">
+                      <li v-for="(list, i) in item.list[index2].col2" :key="i">
                         <router-link to="/" class="link clearfix">
-                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
-                          <span class="text">Redmi 8A</span>
+                          <img :src="list.img" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">{{list.title}}</span>
                         </router-link>
                       </li>
                     </ul>
-                    <ul class="children-list children-list-col children-list-col-3">
-                      <li>
+                    <ul class="children-list children-list-col children-list-col-3" v-if="item.list.length">
+                      <li v-for="(list, i) in item.list[index2].col3" :key="i">
                         <router-link to="/" class="link clearfix">
-                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
-                          <span class="text">Redmi 8A</span>
+                          <img :src="list.img" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">{{list.title}}</span>
                         </router-link>
                       </li>
                     </ul>
-                    <ul class="children-list children-list-col children-list-col-4">
-                      <li>
+                    <ul class="children-list children-list-col children-list-col-4" v-if="item.list.length">
+                      <li v-for="(list, i) in item.list[index2].col4" :key="i">
                         <router-link to="/" class="link clearfix">
-                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/77bfd346ad97807237beca297cfe2fba.png?thumb=1&w=50&h=50&f=webp&q=90" alt="" width="40" height="40" class="thumb"/>
-                          <span class="text">Redmi 8A</span>
+                          <img :src="list.img" alt="" width="40" height="40" class="thumb"/>
+                          <span class="text">{{list.title}}</span>
                         </router-link>
                       </li>
                     </ul>
@@ -118,11 +119,10 @@
     </div>
     <div class="header-nav-menu"
       :class="{'slide-down': isShowNav[index], 'slide-up': !isShowNav[index], 'header-nav-menu-active': isShowNav[index]}"
-      @mouseenter="enterNav(index)"
-      @mouseleave="leaveNav(index)"
+     @mouseenter="handleMouseEnter(index)" @mouseleave="handleMouseLeave(index)"
       >
       <div class="container">
-        <ul class="children-list clearfix">
+        <ul class="children-list clearfix" v-if="topNav.length && topNav[index].list.length">
           <li class="first"  v-for="(item, index) in topNav[index].list" :key="index">
             <router-link to="/">
               <div class="figure figure-thumb">
@@ -142,75 +142,90 @@
 export default {
   data () {
     return {
-      num: [
-        '0', '1', '2', '3'
-      ],
       showAll: true,
-      isEnterNav: [
-        false, false, false, false, false, false, false, false, false
-      ],
       isSearch: false,
+      leftNav: [],
+      isShowLeftNav: [
+        false, false, false, false, false, false, false, false, false, false
+      ],
+      topNav: [],
+      index: 6,
+      index2: 0,
+      num: -1,
       isShowNav: [
         false, false, false, false, false, false, false
-      ],
-      leftNav: [],
-      isShowLeftNav: false,
-      topNav: [],
-      index: 6
+      ]
+    }
+  },
+  computed:{
+    isEnterNav() {
+      return [
+        false, false, false, false, false, false, false, false, false
+      ]
     }
   },
   methods: {
+    handleMouseEnter(index) {
+      console.log('num', this.num)
+      console.log('index', this.index)
+      this.isShowNav[this.index] = true
+      console.log('222', this.isShowNav[this.num])
+    },
+    handleMouseLeave (index) {
+      this.isShowNav[this.index] = false
+    },
     enterNav (index) {
-      let isEnterNav = this.isEnterNav.slice(0);
+      // let isEnterNav = this.isEnterNav.slice(0)
+      // let isShowNav = this.isShowNav.slice(0)
 
-      isEnterNav[index] = true;
-      this.isEnterNav = isEnterNav;
+      this.isEnterNav[index] = true
+      // this.isEnterNav = isEnterNav
       // this.isEnterNav[index] = true
       if (index < 7) {
-        let isShowNav = this.isShowNav;
-        isShowNav[index] = true
-        this.isShowNav = isShowNav;
+        this.isShowNav[index] = true
+        // this.isShowNav = isShowNav
         // this.isShowNav[index] = true
-        console.log(event.target.dataset.index)
+        console.log(index, 'enter')
         this.index = event.target.dataset.index
       }
       // console.log(index)
-      
     },
     leaveNav (index) {
-      console.log('leaveNav-------------------', index)
-      let isEnterNav = this.isEnterNav.slice(0);
-
-      isEnterNav[index] = false
-      this.isEnterNav = isEnterNav;
+      this.num = index
+      console.log('leaveNav', index)
+      // let isEnterNav = this.isEnterNav.slice(0)
+      this.isEnterNav[index] = false
+      // this.isEnterNav = isEnterNav
       // index = event.target.dataset.index
       if (index < 7) {
-        let isShowNav = this.isShowNav;
-        isShowNav[index] = false
-        this.isShowNav = isShowNav;
-        this.index = event.target.dataset.index
+        let isShowNav = this.isShowNav
+        this.isShowNav[index] = false
+        this.isShowNav = isShowNav
+        // this.index = event.target.dataset.index
       }
     },
     isShowSearch () {
       this.isSearch = true
     },
-    enterLeftNav () {
-      this.isShowLeftNav = true
+    enterLeftNav (index) {
+      this.index2 = event.target.dataset.index
+      this.isShowLeftNav[index] = true
     },
-    leaveLeftNav () {
-      this.isShowLeftNav = false
+    leaveLeftNav (index) {
+      this.index2 = event.target.dataset.index
+      this.isShowLeftNav[index] = false
     }
   },
   created () {
     this.$nextTick(() => {
       this.$http.get('http://localhost:8080/static/leftNav.json').then((res) => {
-      console.log(res)
-      this.leftNav = res.data.nav
-    })
-    this.$http.get('http://localhost:8080/static/topNav.json').then(res => {
-      this.topNav = res.data.topNav
-      console.log(res.data.topNav[this.index].list)
-    })
+        console.log(res)
+        this.leftNav = res.data.nav
+      })
+      this.$http.get('http://localhost:8080/static/topNav.json').then(res => {
+        this.topNav = res.data.topNav
+        // console.log(res.data.topNav[this.index].list)
+      })
     })
   }
 }

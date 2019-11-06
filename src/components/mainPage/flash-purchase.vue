@@ -10,11 +10,11 @@
           <img src="" alt="">
           <div class="desc">距离结束还有</div>
           <div class="countdown clearfix">
-            <span>02</span>
+            <span id="h">{{hour}}</span>
             <i>:</i>
-            <span>51</span>
+            <span id="m">{{minute}}</span>
             <i>:</i>
-            <span>36</span>
+            <span id="s">{{second}}</span>
           </div>
         </div>
         <div class="span16 flashsale-list swiper-container swiper-no-swiping">
@@ -34,7 +34,40 @@
 </template>
 
 <script>
+// import '@/utils/flash-purchase.js'
 export default {
+  data () {
+    return {
+      hour: '0',
+      minute: '0',
+      second: '0',
+      start: '2019-11-10 0:0:0'
+    }
+  },
+  methods: {
+    leftTimer () {
+      var newDate = new Date()
+      var newDate1 = new Date(this.start)
+      var restTime = newDate1.getTime() - newDate.getTime() // 计算剩余的毫秒数
+      var hours = parseInt(restTime / 1000 / 60 / 60 % 24, 10) // 计算剩余的小时
+      var minutes = parseInt(restTime / 1000 / 60 % 60, 10)// 计算剩余的分钟
+      var seconds = parseInt(restTime / 1000 % 60, 10)// 计算剩余的秒数
+      hours = this.fix(hours, 2)
+      minutes = this.fix(minutes, 2)
+      seconds = this.fix(seconds, 2)
+      this.hour = hours
+      this.minute = minutes
+      this.second = seconds
+    },
+    fix (num, length) {
+      return ('' + num).length < length ? ((new Array(length + 1)).join('0') + num).slice(-length) : '' + num
+    }
+  },
+  created () {
+    setInterval(() => {
+      this.leftTimer()
+    }, 1000);
+  }
 }
 </script>
 

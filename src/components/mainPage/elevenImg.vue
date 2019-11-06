@@ -26,49 +26,141 @@
           </ul>
         </div>
         <div class="span16">
-          <ul class="brick-list clearfix hide">
-            <div>
-              <li class="brick-item brick-item-m brick-item-m-2">
-                <router-link to="">
-                  <div class="figure figure-img">
-                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="160" height="160">
-                  </div>
-                  <h3 class="title">
-                    sdf
-                  </h3>
-                  <p class="desc">item.de</p>
-                  <p class="price">
-                    <span class="num">item.newprice</span>
-                    <del class>
-                      <span class="num">item.oldprice</span>
-                    </del>
-                  </p>
-                </router-link>
-              </li>
+          <div>
+            <ul class="brick-list clearfix">
+              <div>
+                <li class="brick-item brick-item-m brick-item-m-2">
+                  <router-link to="">
+                    <div class="figure figure-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="160" height="160">
+                    </div>
+                    <h3 class="title">
+                      sdf
+                    </h3>
+                    <p class="desc">item.de</p>
+                    <p class="price">
+                      <span class="num">item.newprice</span>
+                      <del class>
+                        <span class="num">item.oldprice</span>
+                      </del>
+                    </p>
+                  </router-link>
+                </li>
+                <li class="brick-item brick-item-s">
+                  <router-link to="">
+                    <div class="figure figure-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="80" height="80">
+                    </div>
+                    <h3 class="title">sadssfd</h3>
+                    <p class="price">
+                      <span class="num">12</span>
+                    </p>
+                  </router-link>
+                </li>
+              </div>
               <li class="brick-item brick-item-s">
                 <router-link to="">
-                  <div class="figure figure-img">
-                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="80" height="80">
+                  <div class="figure figure-more">
+                    <i class="iconfont"></i>
                   </div>
-                  <h3 class="title">sadssfd</h3>
-                  <p class="price">
-                    <span class="num">12</span>
-                  </p>
+                  <div class="more">
+                    浏览更多
+                    <small>热门</small>
+                  </div>
                 </router-link>
               </li>
-            </div>
-            <li class="brick-item brick-item-s">
-              <router-link to="">
-                <div class="figure figure-more">
-                  <i class="iconfont"></i>
-                </div>
-                <div class="more">
-                  浏览更多
-                  <small>热门</small>
-                </div>
-              </router-link>
-            </li>
-          </ul>
+            </ul>
+          </div>
+          <div>
+            <ul class="brick-list clearfix hide">
+              <div>
+                <li class="brick-item brick-item-m brick-item-m-2">
+                  <router-link to="">
+                    <div class="figure figure-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="160" height="160">
+                    </div>
+                    <h3 class="title">
+                      sdf
+                    </h3>
+                    <p class="desc">item.de</p>
+                    <p class="price">
+                      <span class="num">item.newprice</span>
+                      <del class>
+                        <span class="num">item.oldprice</span>
+                      </del>
+                    </p>
+                  </router-link>
+                </li>
+                <li class="brick-item brick-item-s">
+                  <router-link to="">
+                    <div class="figure figure-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="80" height="80">
+                    </div>
+                    <h3 class="title">sadssfd</h3>
+                    <p class="price">
+                      <span class="num">12</span>
+                    </p>
+                  </router-link>
+                </li>
+              </div>
+              <li class="brick-item brick-item-s">
+                <router-link to="">
+                  <div class="figure figure-more">
+                    <i class="iconfont"></i>
+                  </div>
+                  <div class="more">
+                    浏览更多
+                    <small>热门</small>
+                  </div>
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="brick-list clearfix hide">
+              <div>
+                <li class="brick-item brick-item-m brick-item-m-2">
+                  <router-link to="">
+                    <div class="figure figure-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="160" height="160">
+                    </div>
+                    <h3 class="title">
+                      sdf
+                    </h3>
+                    <p class="desc">item.de</p>
+                    <p class="price">
+                      <span class="num">item.newprice</span>
+                      <del class>
+                        <span class="num">item.oldprice</span>
+                      </del>
+                    </p>
+                  </router-link>
+                </li>
+                <li class="brick-item brick-item-s">
+                  <router-link to="">
+                    <div class="figure figure-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/574c6643ab91c6618bfb2d0e2c761d0b.jpg?thumb=1&w=293&h=768&f=webp&q=90" alt="" width="80" height="80">
+                    </div>
+                    <h3 class="title">sadssfd</h3>
+                    <p class="price">
+                      <span class="num">12</span>
+                    </p>
+                  </router-link>
+                </li>
+              </div>
+              <li class="brick-item brick-item-s">
+                <router-link to="">
+                  <div class="figure figure-more">
+                    <i class="iconfont"></i>
+                  </div>
+                  <div class="more">
+                    浏览更多
+                    <small>热门</small>
+                  </div>
+                </router-link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -82,7 +174,11 @@ export default {
     }
   },
   methods: {},
-  created () {}
+  created () {
+    // this.$http.get('').then(res => {
+    //   console.log(res)
+    // })
+  }
 }
 </script>
 
@@ -167,12 +263,14 @@ export default {
   border-bottom: 2px solid rgba(0,0,0,0);
   -webkit-transition: border .3s;
   transition: border .3s;
-  cursor: pointer
+  cursor: pointer;
+  height: 24px;
+  line-height: 22px;
 }
 
 .xm-plain-box .box-hd .more .tab-list li.tab-active,.xm-plain-box .box-hd .more .tab-list li:hover {
   color: #ff6700;
-  border-bottom: 2px solid #ff6700
+  border-bottom: 2px solid #ff6700;
 }
 .home-brick-box {
   margin-bottom: 8px
