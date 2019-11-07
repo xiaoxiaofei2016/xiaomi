@@ -69,7 +69,7 @@ export default {
     margin 0
     padding 0
     list-style-type none
-    margin 0 0 -14px -14px  
+    margin 0 0 -14px -14px
     .brick-item
       position relative
       z-index 1
@@ -120,7 +120,6 @@ export default {
         transform translate3d(0,-2px,0)
       .figure-img
         margin 0 auto 18px
- 
     .brick-item-m-2
       height 260px
       padding 20px 0
@@ -192,5 +191,4 @@ export default {
           color $hover_color
         &:hover .iconfont
           background $hover_color
-        
 </style>

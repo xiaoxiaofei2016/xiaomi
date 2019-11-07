@@ -157,15 +157,15 @@ export default {
       ]
     }
   },
-  computed:{
-    isEnterNav() {
+  computed: {
+    isEnterNav () {
       return [
         false, false, false, false, false, false, false, false, false
       ]
     }
   },
   methods: {
-    handleMouseEnter(index) {
+    handleMouseEnter (index) {
       console.log('num', this.num)
       console.log('index', this.index)
       this.isShowNav[this.index] = true

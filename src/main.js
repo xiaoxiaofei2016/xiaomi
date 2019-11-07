@@ -10,8 +10,8 @@ import './style/css/font.styl'
 import axios from 'axios'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-// import 'swiper/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
+
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false

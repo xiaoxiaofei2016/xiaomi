@@ -51,7 +51,7 @@
 
 <script>
 import 'swiper/css/swiper.css'
-import Swiper from 'swiper'
+// import Swiper from 'swiper'
 export default {
   data () {
     return {
@@ -72,9 +72,9 @@ export default {
           disableOnInteraction: false // 手动切换之后继续自动轮播
         },
         navigation: {
-          nextEl: ".swiper-flashsale-next",
-          prevEl: ".swiper-flashsale-prev",
-          disabledClass: "my-button-disabled"
+          nextEl: '.swiper-flashsale-next',
+          prevEl: '.swiper-flashsale-prev',
+          disabledClass: 'my-button-disabled'
         }
       },
       list: []
@@ -102,7 +102,6 @@ export default {
       var hours = parseInt(restTime / 1000 / 60 / 60 % 24, 10) // 计算剩余的小时
       var minutes = parseInt(restTime / 1000 / 60 % 60, 10)// 计算剩余的分钟
       var seconds = parseInt(restTime / 1000 % 60, 10)// 计算剩余的秒数
-      
       hours = this.fix(hours, 2)
       minutes = this.fix(minutes, 2)
       seconds = this.fix(seconds, 2)
@@ -123,11 +122,11 @@ export default {
     }, 1000)
   },
   mounted () {
-    console.log("this is current swiper instance object", this.swiper)
+    console.log('this is current swiper instance object', this.swiper)
     this.swiper.slideTo(3, 1000, false)
   },
   destroyed () {
-    clearInterval(time)
+    clearInterval(this.time)
   }
 }
 </script>
@@ -244,8 +243,6 @@ export default {
           color #fff
           background-color #e53935
           z-index 2
-
-  
   .swiper-controls
     position absolute
     right 0
@@ -299,6 +296,5 @@ export default {
   outline none
 
 .home-flashsale .swiper-flashsale-next:hover,.home-flashsale .swiper-flashsale-prev:hover
-  color #ff6700
-      
+  color $hover_color
 </style>

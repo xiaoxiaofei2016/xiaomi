@@ -40,7 +40,7 @@ export default {
         { imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f5cb5e3368bb386449e5150dea66f550.jpg?thumb=1&w=1533&h=150&f=webp&q=90' },
         { imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/89c2a209b742fce9b10d9d196149d634.jpg?thumb=1&w=1533&h=150&f=webp&q=90' },
         { imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/10fb0086cb21120c53248a3d8cc56dc5.jpg?thumb=1&w=1533&h=150&f=webp&q=90' },
-        { imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/88e35cffc82cd98cd53172460067af17.jpg?thumb=1&w=1533&h=150&f=webp&q=90' },
+        { imgUrl: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/88e35cffc82cd98cd53172460067af17.jpg?thumb=1&w=1533&h=150&f=webp&q=90' }
       ]
     }
   }
