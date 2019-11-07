@@ -221,7 +221,7 @@ export default {
           margin 0 20px 12px
           font-size 12px
           text-overflow ellipsis
-          color #b0b0b0
+          color $font_color
           overflow hidden
           white-space nowrap
         .price
@@ -229,7 +229,7 @@ export default {
           color #ff6709
           font-size 14px
           del
-            color #b0b0b0
+            color $font_color
         .flag
           position absolute
           top 0
@@ -283,12 +283,12 @@ export default {
   height 16px
   padding 3px 5px
   margin-left -1px
-  border 1px solid #e0e0e0
+  border 1px solid $border_color
   font-size 16px
   line-height 16px
   -webkit-transition color 0.5s
   transition color 0.5s
-  color #b0b0b0
+  color $font_color
   text-align center
   cursor pointer
 

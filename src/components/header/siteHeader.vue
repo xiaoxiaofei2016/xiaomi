@@ -334,7 +334,7 @@ export default {
                     right 20px
                     font-size 16px
                     line-height 16px
-                    color #e0e0e0
+                    color $border_color
                 .children
                   display none
                   position absolute
@@ -342,7 +342,7 @@ export default {
                   top 0
                   z-index 24
                   height 458px
-                  border 1px solid #e0e0e0
+                  border 1px solid $border_color
                   border-left 0
                   background #fff
                   box-shadow 0 8px 16px rgba(0,0,0,.18)
@@ -446,7 +446,7 @@ export default {
         .search-btn,.search-text
           position absolute
           top 0
-          border 1px solid #e0e0e0
+          border 1px solid $border_color
           outline 0
           transition all .2s
         .search-hot-words
@@ -486,7 +486,7 @@ export default {
     height: 219px
   .header-nav-menu-active
     border-bottom: 1px solid\9;
-    border-top 1px solid #e0e0e0
+    border-top 1px solid $border_color
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
     transition: height .3s, box-shadow .2s;
     transition: box-shadow .2s, height .3s;
@@ -511,7 +511,7 @@ export default {
             width 1px
             height 100px
             content ''
-            background-color #e0e0e0
+            background-color $border_color
       .children-list .first::before
         display none
           .figure-thumb

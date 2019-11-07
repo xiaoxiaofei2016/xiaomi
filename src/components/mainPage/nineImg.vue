@@ -138,7 +138,7 @@ export default {
       .price
         margin 0 10px 14px
         text-align center
-        color #ff6700
+        color $hover_color
         .num
           font-size 14px
         del
