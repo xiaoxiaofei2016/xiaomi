@@ -2,23 +2,23 @@
   "footerTitle": [
     {
       "title": "预约维修服务",
-      "iconClass": ""
+      "iconClass": "icon-weixiu"
     },
     {
       "title": "7天无理由退货",
-      "iconClass": ""
+      "iconClass": "icon-tiantuihuo"
     },
     {
       "title": "15天免费退货",
-      "iconClass": ""
+      "iconClass": "icon-tianwuliyoutuihuo"
     },
     {
       "title": "满150包邮",
-      "iconClass": ""
+      "iconClass": "icon-liwu"
     },
     {
       "title": "520余家售后网点",
-      "iconClass": ""
+      "iconClass": "icon-dizhi"
     }
   ],
   "Mtitle": [

@@ -15,6 +15,7 @@
       <v-img :images="imgs[5].imgUrl"></v-img>
       <!-- <v-elevenImg></v-elevenImg> -->
       <v-img :images="imgs[6].imgUrl"></v-img>
+      <v-fourMV></v-fourMV>
     </div>
   </div>
 </template>
@@ -24,12 +25,14 @@ import flashPurchase from './flash-purchase.vue'
 import img from './img.vue'
 import nineImg from './nineImg.vue'
 import elevenImg from './elevenImg.vue'
+import fourMV from './fourMV'
 export default {
   components: {
     'v-flashPurchase': flashPurchase,
     'v-img': img,
     'v-nineImg': nineImg,
-    'v-elevenImg': elevenImg
+    'v-elevenImg': elevenImg,
+    'v-fourMV': fourMV
   },
   data () {
     return {

@@ -5,7 +5,7 @@
       <div class="more">
         <router-link to="/" class="more-link">
         查看全部
-          <i class="iconfont"></i>
+          <i class="iconfont icon-jiantouyou"></i>
         </router-link>
       </div>
     </div>

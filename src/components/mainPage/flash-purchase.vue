@@ -38,10 +38,10 @@
         </swiper>
         <div class="swiper-controls">
           <span class="swiper-flashsale-prev">
-            <i class="iconfont"></i>
+            <i class="iconfont icon-jiantou-copy-copy"></i>
           </span>
           <span class="swiper-flashsale-next">
-            <i class="iconfont"></i>
+            <i class="iconfont icon-jiantouxuanze"></i>
           </span>
         </div>
       </div>

@@ -27,7 +27,7 @@
               (仅收市话费)
             </p>
             <router-link to="/" class="btn btn-line-primary btn-small">
-              <i class="iconfont"></i>
+              <i class="iconfont icon-duanxin"></i>
               人工客服
             </router-link>
           </div>

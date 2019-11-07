@@ -19,7 +19,7 @@
                   v-for="(item, index) in leftNav" :key="index"
                   >
                   <router-link to="/" class="title">{{item.name}}
-                    <i class="iconfont"></i>
+                    <i class="iconfont icon-jiantou"></i>
                   </router-link>
                   <div class="children clearfix children-col-4">
                     <ul class="children-list children-list-col children-list-col-1" v-if="item.list.length">
