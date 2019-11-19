@@ -76,11 +76,11 @@ export default {
   transition all 0.5s
 .agreement-enter,
 .agreement-leave
-  transform translateY(0)
+  // transform translateY(0)
   opacity 0
 .agreement-enter-to,
 .agreement-leave-to
-  transform translateY(-100%)
+  // transform translateY(-100%)
   opacity 1
 .mi-dialog__wrapper
   position fixed
