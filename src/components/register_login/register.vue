@@ -72,7 +72,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.agreement-enter-active,.agreement-leave-active
+.agreement-enter-active,
+.agreement-leave-active
   transition all 0.5s
 .agreement-enter,
 .agreement-leave
